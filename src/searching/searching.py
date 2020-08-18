@@ -1,6 +1,18 @@
 # TO-DO: Implement a recursive implementation of binary search
 def binary_search(arr, target, start, end):
     # Your code here
+    midPoint = (start + end) // 2
+    if start < end:
+        if target == arr[midPoint]:
+            return midPoint
+        elif target < arr[midPoint]:
+            end = end - 1
+            return binary_search(arr, target, start, end)
+        elif target > arr[midPoint]:
+            start = start + 1
+            return binary_search(arr, target, start, end)
+    else:
+        return -1
 
 
 # STRETCH: implement an order-agnostic binary search
@@ -12,3 +24,4 @@ def binary_search(arr, target, start, end):
 def agnostic_binary_search(arr, target):
     # Your code here
 
+    pass
